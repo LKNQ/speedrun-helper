@@ -1,6 +1,7 @@
 package lknq.speedrunhelper.debug;
 
 import net.minecraft.util.math.ChunkPos;
+import lknq.speedrunhelper.debug.DebugStats;
 
 public final class DebugStats {
 

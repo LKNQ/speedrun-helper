@@ -1,9 +1,9 @@
 package lknq.speedrunhelper.detector;
 
-import lknq.speedrunhelper.scanner.ChunkData;
+import lknq.speedrunhelper.blockscan.BlockCollector;
 
 public interface StructureDetector {
 
-    void scan(ChunkData chunk);
+    void scan(BlockCollector collector);
 
 }

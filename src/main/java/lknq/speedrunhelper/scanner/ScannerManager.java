@@ -1,16 +1,21 @@
 package lknq.speedrunhelper.scanner;
 
+import lknq.speedrunhelper.blockscan.BlockCollector;
+import lknq.speedrunhelper.blockscan.ChunkScanner;
 import net.minecraft.world.chunk.WorldChunk;
 
 public class ScannerManager {
 
-    private final ChunkScanner scanner = new ChunkScanner();
-
     public void onChunkLoaded(WorldChunk chunk) {
 
-        scanner.scanChunk(
-                chunk.getPos().x,
-                chunk.getPos().z
+        BlockCollector collector = ChunkScanner.scan(chunk);
+
+        System.out.println(
+                "[Scanner] Chunk "
+                        + chunk.getPos()
+                        + " -> "
+                        + collector.size()
+                        + " interesting blocks"
         );
 
     }

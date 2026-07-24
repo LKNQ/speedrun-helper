@@ -91,8 +91,7 @@ public final class HudRenderListener {
 
             client.textRenderer.draw(
                     matrices,
-                    "Village candidates: "
-                            + DebugStats.villageCandidates,
+                    "Detected structures: " + DebugStats.detectedStructures,
                     x, y,
                     0xFFAA00);
 

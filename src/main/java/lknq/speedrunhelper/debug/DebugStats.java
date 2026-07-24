@@ -10,7 +10,7 @@ public final class DebugStats {
     public static int lastVillageScore = 0;
     public static long lastScanNs = 0;
     public static long totalScanNs = 0;
-
+    public static int detectedStructures = 0;
     public static int villageCandidates = 0;
     public static int waypointCount = 0;
 

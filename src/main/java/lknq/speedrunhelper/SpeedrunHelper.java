@@ -3,6 +3,7 @@ package lknq.speedrunhelper;
 import lknq.speedrunhelper.debug.DebugKeybinds;
 import lknq.speedrunhelper.event.ChunkLoadListener;
 import net.fabricmc.api.ClientModInitializer;
+import lknq.speedrunhelper.event.HudRenderListener;
 
 public class SpeedrunHelper implements ClientModInitializer {
 
@@ -16,6 +17,7 @@ public class SpeedrunHelper implements ClientModInitializer {
         ServiceManager.initialize();
         DebugKeybinds.initialize();
         ChunkLoadListener.register();
+        HudRenderListener.register();
 
     }
 

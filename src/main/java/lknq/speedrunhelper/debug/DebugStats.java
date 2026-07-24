@@ -7,26 +7,40 @@ public final class DebugStats {
     public static int chunksScanned = 0;
     public static int interestingBlocks = 0;
 
-    public static long lastScanTimeNs = 0;
-    public static long maxScanTimeNs = 0;
+    public static long lastScanNs = 0;
+    public static long totalScanNs = 0;
 
-    public static ChunkPos lastChunk = null;
+    public static int villageCandidates = 0;
+    public static int waypointCount = 0;
 
-    private DebugStats() {
-    }
+    private DebugStats() {}
 
-    public static void recordScan(ChunkPos chunk, int interesting, long nanos) {
+    public static void recordScan(ChunkPos chunk, int blockCount, long scanTimeNs) {
 
         chunksScanned++;
+        interestingBlocks += blockCount;
 
-        interestingBlocks += interesting;
+        lastScanNs = scanTimeNs;
+        totalScanNs += scanTimeNs;
+    }
 
-        lastChunk = chunk;
+    public static double getLastScanMs() {
+        return lastScanNs / 1_000_000.0;
+    }
 
-        lastScanTimeNs = nanos;
+    public static double getAverageScanMs() {
 
-        if (nanos > maxScanTimeNs) {
-            maxScanTimeNs = nanos;
-        }
+        if (chunksScanned == 0)
+            return 0;
+
+        return (totalScanNs / (double) chunksScanned) / 1_000_000.0;
+    }
+
+    public static void setVillageCandidates(int count) {
+        villageCandidates = count;
+    }
+
+    public static void setWaypointCount(int count) {
+        waypointCount = count;
     }
 }

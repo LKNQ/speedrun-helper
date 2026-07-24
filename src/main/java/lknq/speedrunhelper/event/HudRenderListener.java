@@ -81,6 +81,16 @@ public final class HudRenderListener {
 
             client.textRenderer.draw(
                     matrices,
+                    "Village score: " + DebugStats.lastVillageScore,
+                    x,
+                    y,
+                    0xFFFF55
+            );
+
+            y += 10;
+
+            client.textRenderer.draw(
+                    matrices,
                     "Village candidates: "
                             + DebugStats.villageCandidates,
                     x, y,

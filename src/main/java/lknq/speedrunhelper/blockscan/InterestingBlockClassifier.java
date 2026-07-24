@@ -15,7 +15,30 @@ public class InterestingBlockClassifier {
                 || block == Blocks.COMPOSTER
                 || block == Blocks.BARREL
                 || block == Blocks.BREWING_STAND
-                || block == Blocks.GRINDSTONE) {
+                || block == Blocks.GRINDSTONE
+                || block == Blocks.FLETCHING_TABLE
+                || block == Blocks.SMOKER
+                || block == Blocks.LOOM
+                || block == Blocks.STONECUTTER
+                || block == Blocks.HAY_BLOCK
+                || block == Blocks.YELLOW_BED
+                || block == Blocks.WHITE_BED
+                || block == Blocks.RED_BED
+                || block == Blocks.BLACK_BED
+                || block == Blocks.BLUE_BED
+                || block == Blocks.GREEN_BED
+                || block == Blocks.BROWN_BED
+                || block == Blocks.CYAN_BED
+                || block == Blocks.GRAY_BED
+                || block == Blocks.LIGHT_BLUE_BED
+                || block == Blocks.LIGHT_GRAY_BED
+                || block == Blocks.LIME_BED
+                || block == Blocks.MAGENTA_BED
+                || block == Blocks.ORANGE_BED
+                || block == Blocks.PINK_BED
+                || block == Blocks.PURPLE_BED
+                || block == Blocks.BEDROCK // temporary test
+        ) {
             return InterestingBlockType.VILLAGE;
         }
 

@@ -11,11 +11,10 @@ public class ScannerManager {
         BlockCollector collector = ChunkScanner.scan(chunk);
 
         System.out.println(
-                "[Scanner] Chunk "
-                        + chunk.getPos()
-                        + " -> "
+                "[Scanner] "
                         + collector.size()
-                        + " interesting blocks"
+                        + " interesting blocks | total chunks="
+                        + lknq.speedrunhelper.debug.DebugStats.chunksScanned
         );
 
     }

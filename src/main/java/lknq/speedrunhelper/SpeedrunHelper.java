@@ -1,5 +1,6 @@
 package lknq.speedrunhelper;
 
+import lknq.speedrunhelper.event.ChunkLoadListener;
 import net.fabricmc.api.ClientModInitializer;
 
 public class SpeedrunHelper implements ClientModInitializer {
@@ -8,7 +9,19 @@ public class SpeedrunHelper implements ClientModInitializer {
 
     @Override
     public void onInitializeClient() {
+
         System.out.println("[Speedrun Helper] Loaded");
+
         ServiceManager.initialize();
+
+        ChunkLoadListener.register();
+
     }
+
+    public static void log(String text) {
+
+        System.out.println("[Speedrun Helper] " + text);
+
+    }
+
 }

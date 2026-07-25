@@ -4,7 +4,9 @@
 	"package": "lknq.speedrunhelper.mixin",
 	"compatibilityLevel": "JAVA_8",
 	"mixins": [],
-	"client": [],
+	"client": [
+		"ChatScreenMixin"
+	],
 	"injectors": {
 		"defaultRequire": 1
 	}

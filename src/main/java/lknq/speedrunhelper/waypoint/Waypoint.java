@@ -1,36 +1,34 @@
 package lknq.speedrunhelper.waypoint;
 
 import lknq.speedrunhelper.detector.StructureType;
+import net.minecraft.util.math.BlockPos;
 
 public class Waypoint {
 
+    private final BlockPos pos;
     private final StructureType type;
+    private final int confidence;
 
-    private final int x;
-    private final int y;
-    private final int z;
-
-    public Waypoint(StructureType type, int x, int y, int z) {
+    public Waypoint(
+            BlockPos pos,
+            StructureType type,
+            int confidence
+    ) {
+        this.pos = pos;
         this.type = type;
-        this.x = x;
-        this.y = y;
-        this.z = z;
+        this.confidence = confidence;
+    }
+
+    public BlockPos getPos() {
+        return pos;
     }
 
     public StructureType getType() {
         return type;
     }
 
-    public int getX() {
-        return x;
-    }
-
-    public int getY() {
-        return y;
-    }
-
-    public int getZ() {
-        return z;
+    public int getConfidence() {
+        return confidence;
     }
 
 }

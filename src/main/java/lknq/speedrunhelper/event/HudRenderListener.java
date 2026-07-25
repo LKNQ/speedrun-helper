@@ -4,6 +4,9 @@ import lknq.speedrunhelper.debug.DebugOverlay;
 import lknq.speedrunhelper.debug.DebugStats;
 import net.fabricmc.fabric.api.client.rendering.v1.HudRenderCallback;
 import net.minecraft.client.MinecraftClient;
+import lknq.speedrunhelper.ServiceManager;
+import lknq.speedrunhelper.detector.DetectedStructure;
+import java.util.List;
 
 public final class HudRenderListener {
 
@@ -92,17 +95,71 @@ public final class HudRenderListener {
             client.textRenderer.draw(
                     matrices,
                     "Detected structures: " + DebugStats.detectedStructures,
-                    x, y,
-                    0xFFAA00);
+                    x,
+                    y,
+                    0xFFAA00
+            );
 
-            y += 10;
+            y += 12;
+
+            List<DetectedStructure> nearest =
+                    ServiceManager.getDetectionManager().getNearest(5);
+
+            for (int i = 0; i < nearest.size(); i++) {
+
+                DetectedStructure structure = nearest.get(i);
+
+                int distance = (int) Math.sqrt(
+                        structure.getPos().getSquaredDistance(
+                                client.player.getPos(),
+                                true
+                        )
+                );
+
+                client.textRenderer.draw(
+                        matrices,
+                        (i + 1)
+                                + ". "
+                                + structure.getType()
+                                + " ("
+                                + structure.getConfidence()
+                                + ") "
+                                + distance
+                                + "m",
+                        x,
+                        y,
+                        0xFFFFFF
+                );
+
+                y += 10;
+
+                client.textRenderer.draw(
+                        matrices,
+                        "Pos: "
+                                + structure.getPos().getX()
+                                + " "
+                                + structure.getPos().getY()
+                                + " "
+                                + structure.getPos().getZ(),
+                        x + 10,
+                        y,
+                        0xAAAAAA
+                );
+
+                y += 12;
+            }
 
             client.textRenderer.draw(
                     matrices,
                     "Waypoints: "
-                            + DebugStats.waypointCount,
-                    x, y,
-                    0xFF55FF);
+                            + ServiceManager
+                            .getWaypointManager()
+                            .getWaypoints()
+                            .size(),
+                    x,
+                    y,
+                    0x55FFFF
+            );
         });
 
     }

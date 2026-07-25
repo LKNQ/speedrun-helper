@@ -3,6 +3,7 @@ package lknq.speedrunhelper;
 import lknq.speedrunhelper.detector.DetectionManager;
 import lknq.speedrunhelper.detector.DetectorManager;
 import lknq.speedrunhelper.scanner.ScannerManager;
+import lknq.speedrunhelper.waypoint.WaypointManager;
 
 public class ServiceManager {
 
@@ -14,6 +15,13 @@ public class ServiceManager {
 
     private static final DetectionManager detectionManager =
             new DetectionManager();
+
+    private static final WaypointManager waypointManager =
+            new WaypointManager();
+
+    public static WaypointManager getWaypointManager() {
+        return waypointManager;
+    }
 
     public static void initialize() {
     }

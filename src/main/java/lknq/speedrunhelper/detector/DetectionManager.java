@@ -53,6 +53,16 @@ public class DetectionManager {
             }
 
         }
+
+
+        structures.add(
+                new DetectedStructure(
+                        type,
+                        pos,
+                        confidence
+                )
+        );
+
         ServiceManager.getWaypointManager().clear();
 
         for (DetectedStructure structure : structures) {
@@ -66,14 +76,6 @@ public class DetectionManager {
             );
 
         }
-
-        structures.add(
-                new DetectedStructure(
-                        type,
-                        pos,
-                        confidence
-                )
-        );
 
         DebugStats.detectedStructures = structures.size();
     }

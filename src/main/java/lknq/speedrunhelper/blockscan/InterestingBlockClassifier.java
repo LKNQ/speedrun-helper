@@ -37,7 +37,6 @@ public class InterestingBlockClassifier {
                 || block == Blocks.ORANGE_BED
                 || block == Blocks.PINK_BED
                 || block == Blocks.PURPLE_BED
-                || block == Blocks.BEDROCK // temporary test
         ) {
             return InterestingBlockType.VILLAGE;
         }
